@@ -1,5 +1,5 @@
 Maxwell is a multi-GPU implementation of finite-difference frequency domain solver.
-
+This code is intended to be used in conjunction with SPINS (github.com/stanfordnqp/spins-b).
 
 Overview
 ========
@@ -94,3 +94,7 @@ and `simserver.py` manages running the actual simulations. Both servers save log
 Every simulation maintains its own log file. This can be found under `$MAXWELL_SERVER_FILES` directory.
 By default, the Docker sets this location to be `/mnt/maxwell-server-files` in the container.
 
+
+Acknowledgements
+================
+This code is primarily based off of https://github.com/JesseLu/maxwell-solver.
