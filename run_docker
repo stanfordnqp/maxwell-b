@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Builds and runs maxwell in Docker.
+PORT=9041
+MAXWELL_DOCKER_VOL=maxwell-vol
+MAXWELL_SERVER_FILES=/mnt/maxwell-server-files
+
+docker build -t maxwell .
+docker run --runtime=nvidia \
+    --mount "source=$MAXWELL_DOCKER_VAL,target=$MAXWELL_SERVER_FILES" \
+    -d \
+    -p $PORT:$PORT \
+    -e PORT=$PORT \
+    -e MAXWELL_SERVER_FILES="$MAXWELL_SERVER_FILES" \
+    -e NGPUS=1 \
+    maxwell #tail -f /dev/null

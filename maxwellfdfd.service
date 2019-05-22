@@ -1,0 +1,12 @@
+[Unit]
+Description=MaxwellFDFD webserver and simserver
+After=network-online.target nss-lookup.target
+Wants=network-online.target nss-lookup.target
+
+[Service]
+WorkingDirectory=/home/maxwell
+Type=forking
+ExecStart=/usr/bin/sudo -u maxwell /home/maxwell/start_maxwell
+
+[Install]
+WantedBy=multi-user.target

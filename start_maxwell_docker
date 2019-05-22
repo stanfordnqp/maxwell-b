@@ -1,0 +1,4 @@
+#!/bin/bash -e
+source /pyenv/bin/activate
+python3 maxwell-server/simserver.py $NGPUS &> simserver.log &
+python3 maxwell-server/webserver.py $PORT  &> webserver.log
