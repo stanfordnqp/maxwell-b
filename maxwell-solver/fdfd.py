@@ -201,14 +201,14 @@ def get_parameters(name):
         n_eig = int(f['n_eig'][0])
 
         # bloch boundary conditions
-        bloch_phase = f['bloch_phase'].value
+        bloch_phase = f['bloch_phase'][...]
 
         # PEC or PMC boundary conditions
-        pemc = f['pemc'].value.astype('int32')
+        pemc = f['pemc'][...].astype('int32')
 
         # get solver
         EM_solvers = ['CG', 'biCGSTAB', 'lgmres', 'Jacobi-Davidson']
-        solver = EM_solvers[f['solver'].value]
+        solver = EM_solvers[f['solver'][...]]
 
         # Function used to read in a 1D complex vector fields.
         get_1D_fields = lambda a: [(f[a+'_'+u+'r'][:] + 1j * f[a+'_'+u+'i'][:]).\
